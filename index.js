@@ -6,12 +6,15 @@ const
     bodyParser = require('body-parser'),
     app = express().use(bodyParser.json()); // creates express http server
 
-// Sets server port and logs message on success
+
+    const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+
+    // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 
 app.get('/', function (req, res) {
-    res.send("Hi I am a chatbot")
+    res.send("Hi I am a chatbot 555 ")
 });
 
 
