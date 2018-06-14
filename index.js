@@ -93,6 +93,9 @@ function handleMessage(sender_psid, received_message) {
       response = {
         "text": `You sent the message: "${received_message.text}". Now send me an image!`
       }
+    }
+    else{
+        console.log('msg is NOT reci');
     }  
     
     // Sends the response message
