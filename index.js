@@ -42,7 +42,7 @@ app.post('/webhook', (req, res) => {
                 handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
                 handlePostback(sender_psid, webhook_event.postback);
-            } 
+            }
 
         });
 
@@ -94,14 +94,20 @@ function handleMessage(sender_psid, received_message) {
 
     // Check if the message contains text
     if (received_message.text) {
-        console.log('msg is reci');
+        //console.log('msg is reci');
         // Create the payload for a basic text message
         response = {
             "text": `You sent the message: "${received_message.text}". Now send me an image!`
         }
     }
-    else {
-        console.log('msg is NOT reci');
+    else if (received_message.attachments) {
+
+        // Gets the URL of the message attachment
+        let attachment_url = received_message.attachments[0].payload.url;
+
+    }
+   // else {
+       // console.log('msg is NOT reci');
     }
 
     // Sends the response message
