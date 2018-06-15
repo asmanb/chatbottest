@@ -43,6 +43,13 @@ app.post('/webhook', (req, res) => {
             } else if (webhook_event.postback) {
                 handlePostback(sender_psid, webhook_event.postback);
             }
+            else if (messagingEvent.postback) {
+                receivedPostback(messagingEvent);
+            }
+            
+
+
+
 
         });
 
@@ -183,4 +190,30 @@ function callSendAPI(sender_psid, response) {
             console.error("Unable to send message:" + err);
         }
     });
+}
+
+
+
+function receivedPostback(event) {
+    var senderID = event.sender.id;
+    var recipientID = event.recipient.id;
+    var timeOfPostback = event.timestamp;
+    var payload = event.postback.payload;
+
+    console.log("Received postback for user %d and page %d with payload '%s' " +
+        "at %d", senderID, recipientID, payload, timeOfPostback);
+
+    switch (payload) {
+        case 'get_started':
+            sendGetStarted(senderID);
+            break;
+        case 'check_in':
+            sendTextMessage(senderID, "Check In");
+            break;
+        case 'room_service':
+            sendTextMessage(senderID, "Room Service");
+            break;
+        default:
+            sendTextMessage(senderID, "Postback called");
+    }
 }
