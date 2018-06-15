@@ -8,6 +8,8 @@ const
 
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const request = require('request');
+
 
 
 // Sets server port and logs message on success
