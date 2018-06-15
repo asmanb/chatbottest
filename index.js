@@ -43,9 +43,7 @@ app.post('/webhook', (req, res) => {
             } else if (webhook_event.postback) {
                 handlePostback(sender_psid, webhook_event.postback);
             }
-            else if (messagingEvent.postback) {
-                receivedPostback(messagingEvent);
-            }
+            
             
 
 
@@ -140,6 +138,7 @@ function handleMessage(sender_psid, received_message) {
     
     
     }
+ 
     //}
    // else {
        // console.log('msg is NOT reci');
@@ -162,6 +161,21 @@ function handlePostback(sender_psid, received_postback) {
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
   }
+
+  switch (payload) {
+    case 'get_started':
+        sendGetStarted(senderID);
+        break;
+    case 'check_in':
+        sendTextMessage(senderID, "Check In");
+        break;
+    case 'room_service':
+        sendTextMessage(senderID, "Room Service");
+        break;
+    default:
+        sendTextMessage(senderID, "Postback called");
+}
+
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 
@@ -194,29 +208,6 @@ function callSendAPI(sender_psid, response) {
 
 
 
-function receivedPostback(event) {
-    var senderID = event.sender.id;
-    var recipientID = event.recipient.id;
-    var timeOfPostback = event.timestamp;
-    var payload = event.postback.payload;
-
-    console.log("Received postback for user %d and page %d with payload '%s' " +
-        "at %d", senderID, recipientID, payload, timeOfPostback);
-
-    switch (payload) {
-        case 'get_started':
-            sendGetStarted(senderID);
-            break;
-        case 'check_in':
-            sendTextMessage(senderID, "Check In");
-            break;
-        case 'room_service':
-            sendTextMessage(senderID, "Room Service");
-            break;
-        default:
-            sendTextMessage(senderID, "Postback called");
-    }
-}
 
 function sendGetStarted(recipientId) {
     var messageData = {
