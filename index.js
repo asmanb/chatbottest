@@ -235,8 +235,9 @@ function handlePostback(sender_psid, received_postback) {
             console.log("s pbpl");
             sendGetStarted(sender_psid);
             break;
-        case 'oder_food':
+        case 'order_food':
             console.log("s order");
+            response = { "text": "Now you're ordering foods" }
             break;
         case 'room_service':
             sendTextMessage(senderID, "Room Service");
