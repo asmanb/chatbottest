@@ -200,8 +200,9 @@ function sendTextMessage(recipientId, messageText) {
     callSendAPI(messageData);
 }*/
 
-function sendGetStarted() {
+function sendGetStarted(sender_psid) {
     console.log("sendGetStarted is working");
+    let response;
     response = {
         "attachment": {
             "type": "template",
