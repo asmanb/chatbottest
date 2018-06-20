@@ -145,6 +145,53 @@ function handleMessage(sender_psid, received_message) {
     // Sends the response message
     callSendAPI(sender_psid, response);
 }
+
+function sendGetStarted(sender_psid) {
+
+    console.log("sendGetStarted is working");
+    let response;
+    response = { "text": "sendGetStarted is working" }
+
+    response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "What can I help you",
+                    "subtitle": "This is a bot",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Order Foods",
+                            "payload": "order_food",
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Oder Drinks",
+                            "payload": "order_drinks",
+                        }
+                        ,
+                        {
+                            "type": "postback",
+                            "title": "Contact Us",
+                            "payload": "contact",
+                        }
+                    ],
+                }]
+            }
+        }
+    }
+
+
+    callSendAPI(sender_psid, response);
+}
+
+
+
+
+
+
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
 
@@ -165,9 +212,9 @@ function handlePostback(sender_psid, received_postback) {
         console.log("get started from else if");
         sendGetStarted(sender_psid);
     }
-    else if (payload === 'oder_food' || 'Order Foods') {
-        //response = { "text": "Now you order foods" }
-        console.log("jump in");
+    else if (payload === 'order_food' || 'Order Foods') {
+        response = { "text": "Now you order foods" }
+        console.log("HELLO");
 
     }
     else {
@@ -197,46 +244,7 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 
-function sendGetStarted(sender_psid) {
 
-    console.log("sendGetStarted is working");
-    let response;
-    response = { "text": "sendGetStarted is working" }
-
-    response = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "What can I help you",
-                    "subtitle": "This is a bot",
-                    "buttons": [
-                        {
-                            "type": "postback",
-                            "title": "Order Foods",
-                            "payload": "oder_food",
-                        },
-                        {
-                            "type": "postback",
-                            "title": "Oder Drinks",
-                            "payload": "order_drinks",
-                        }
-                        ,
-                        {
-                            "type": "postback",
-                            "title": "Contact Us",
-                            "payload": "contact",
-                        }
-                    ],
-                }]
-            }
-        }
-    }
-
-
-    callSendAPI(sender_psid, response);
-}
 
 
 
