@@ -280,9 +280,14 @@ function handlePostback(sender_psid, received_postback) {
 
 function addmenux() {
     console.log("addmenuxWorking");
-    // Construct the message body
-    let request_bodyX = {
-        "persistent_menu":[
+    
+
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": "https://graph.facebook.com/v2.6/me/messages",
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
+        "method": "POST",
+        "json": {"persistent_menu":[
             {
               "locale":"default",
               "composer_input_disabled": true,
@@ -306,15 +311,7 @@ function addmenux() {
                 }
               ]
             }
-          ]
-    }
-
-    // Send the HTTP request to the Messenger Platform
-    request({
-        "uri": "https://graph.facebook.com/v2.6/me/messages",
-        "qs": { "access_token": PAGE_ACCESS_TOKEN },
-        "method": "POST",
-        "json": request_bodyX
+          ]}
     }, (err, res, body) => {
         if (!err) {
             console.log('add menu message sent!')
