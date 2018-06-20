@@ -172,8 +172,8 @@ function handlePostback(sender_psid, received_postback) {
 function sendGetStarted(sender_psid) {
 
     console.log("sendGetStarted is working");
-    response = { "text": "get started in function" };
-    
+    response = { "text": "sendGetStarted is working" }
+    /*
     response = {
         "attachment": {
             "type": "template",
@@ -203,7 +203,7 @@ function sendGetStarted(sender_psid) {
                 }]
             }
         }
-    }
+    }*/
 
 
     callSendAPI(sender_psid, response);
