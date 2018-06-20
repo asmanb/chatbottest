@@ -180,7 +180,7 @@ function handlePostback(sender_psid, received_postback) {
      }*/
 
     console.log("Received postback for user %d and page %d with payload '%s' " +
-        "at %d", senderID, recipientID, payload, timeOfPostback);
+        "at %d", sender_psid, recipientID, payload, timeOfPostback);
 
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
