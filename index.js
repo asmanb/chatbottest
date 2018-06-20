@@ -161,7 +161,7 @@ function handlePostback(sender_psid, received_postback) {
         response = { "text": "Thanks!" }
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
-    } else if (payload === 'Get Started') {
+    } else if (payload === 'Get Started'||"get_started") {
         console.log("get started from else if");
         sendGetStarted(recipientId);
         response = { "text": "get started in else if" };
