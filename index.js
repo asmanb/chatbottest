@@ -154,7 +154,7 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
 
-    /*
+    
     // Set the response based on the postback payload
     if (payload === 'yes') {
         response = { "text": "Thanks!" }
@@ -165,9 +165,12 @@ function handlePostback(sender_psid, received_postback) {
         console.log("get started from else if");
         sendGetStarted(sender_psid);
     }
-    */
+    else{
+        response = { "text": "NONE" }
+    }
+    
 
-
+/*
     switch (payload) {
         case 'get_started' ||'Get Started' :
             sendGetStarted(sender_psid);
@@ -180,7 +183,7 @@ function handlePostback(sender_psid, received_postback) {
             break;
         default:
             response = { "text": "None" }
-    }
+    }*/
 
 
     // Send the message to acknowledge the postback
