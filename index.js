@@ -164,7 +164,7 @@ function handlePostback(sender_psid, received_postback) {
     }
 
     switch (payload) {
-        case 'get_started':
+        case 'Get Started':
             sendGetStarted(senderID);
             break;
     
