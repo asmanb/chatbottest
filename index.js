@@ -163,12 +163,13 @@ function handlePostback(sender_psid, received_postback) {
         response = { "text": "Oops, try sending another image." }
     } else if (payload === 'Get Started'||'get_started'){
         console.log("get started from else if");
-
+        sendGetStarted();
+        
 
 
     }
 
-    switch (payload) {
+   /* switch (payload) {
         case 'Get Started':
             //sendGetStarted(senderID);
             console.log("sendGetStarted is working switch");
@@ -176,7 +177,7 @@ function handlePostback(sender_psid, received_postback) {
     
         default:
             sendTextMessage(senderID, "Postback called");
-    }
+    }*/
 
     console.log("Received postback for user %d and page %d with payload '%s' " +
         "at %d", senderID, recipientID, payload, timeOfPostback);
