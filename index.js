@@ -233,6 +233,7 @@ function handlePostback(sender_psid, received_postback) {
             break;
         case '<postback_payload>':
             console.log("s pbpl");
+            sendGetStarted(sender_psid);
             break;
         case 'oder_food':
             console.log("s order");
