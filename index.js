@@ -165,7 +165,8 @@ function handlePostback(sender_psid, received_postback) {
 
     switch (payload) {
         case 'Get Started':
-            sendGetStarted(senderID);
+            //sendGetStarted(senderID);
+            console.log("sendGetStarted is working switch");
             break;
     
         default:
