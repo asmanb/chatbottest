@@ -163,7 +163,7 @@ function sendGetStarted(sender_psid) {
     console.log("sendGetStarted is working");
     let response;
     //response = { "text": "Hello ! It's must be your first time with us.  This is a Bot, You can order your food from the options below.  You can also Contact directly to us from the option  We recommended you to read the manual to use the bot perfectly !" }
-    response = { "text": "Hello !" }
+    ฝฝresponse = { "text": "Hello !" }
     response = {
         "attachment": {
             "type": "template",
@@ -194,7 +194,7 @@ function sendGetStarted(sender_psid) {
             }
         }
     }
-
+    response = { "text": "Hiiii " }
 
     callSendAPI(sender_psid, response);
 }
