@@ -143,7 +143,7 @@ function handleMessage(sender_psid, received_message) {
     switch (received_message.text) {
         case 'menu':
             //sendGetStarted(sender_psid);
-            console.log("s g");
+            response = { "text": "Here's Menu" }
             break;
 
         default:
