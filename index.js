@@ -99,10 +99,6 @@ function handleMessage(sender_psid, received_message) {
     let response;
 
 
-    if (received_message.text == "Menu") {
-
-        response = { "text": "This is Menu" }
-    }
 
     // Check if the message contains text
     if (received_message.text) {
@@ -141,10 +137,15 @@ function handleMessage(sender_psid, received_message) {
                 }
             }
         }
-
-
-
     }
+    else if (received_message.text =='menu'||'Menu'||'MENU') {
+
+        response = {
+            "text": "here's menu"}
+    }
+    
+    
+
 
 
 
