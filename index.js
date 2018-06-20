@@ -276,6 +276,7 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 function addmenux() {
+    console.log("addmenuxWoorking");
     // Construct the message body
     let request_body = {
         "persistent_menu": [
