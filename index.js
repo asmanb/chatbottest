@@ -139,17 +139,34 @@ function handleMessage(sender_psid, received_message) {
         }
     }
 
-    
+
     switch (received_message.text) {
         case 'menu':
             //sendGetStarted(sender_psid);
-            response = { "text": "Here's Menu" }
+            // response = { "text": "Here's Menu" }
+            response = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "button",
+                        "text": "Try the URL button!",
+                        "buttons": [
+                            {
+                                "type": "web_url",
+                                "url": "https://munwrite.wordpress.com/",
+                                "title": "URL Button",
+                                "webview_height_ratio": "full"
+                            }
+                        ]
+                    }
+                }
+            }
             break;
 
         default:
             response = { "text": "XXXXX" }
     }
-    
+
 
 
 
@@ -169,33 +186,33 @@ function sendGetStarted(sender_psid) {
             "type": "template",
             "payload": {
                 "template_type": "button",
-               // "elements": [{
-                    "text": "What can I help you?",
-                    //"subtitle": "This is a bot",
-                    "buttons": [
-                        {
-                            "type": "postback",
-                            "title": "Order Foods",
-                            "payload": "order_food",
-                        },
-                        {
-                            "type": "postback",
-                            "title": "Oder Drinks",
-                            "payload": "order_drinks",
-                        }
-                        ,
-                        {
-                            "type": "postback",
-                            "title": "Contact Us",
-                            "payload": "contact",
-                        }
-                    ],
+                // "elements": [{
+                "text": "What can I help you?",
+                //"subtitle": "This is a bot",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Order Foods",
+                        "payload": "order_food",
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Oder Drinks",
+                        "payload": "order_drinks",
+                    }
+                    ,
+                    {
+                        "type": "postback",
+                        "title": "Talk with me",
+                        "payload": "contact",
+                    }
+                ],
                 //}]
             }
         }
     }
-    
-   // response = { "text": "gggggg" }
+
+    // response = { "text": "gggggg" }
     callSendAPI(sender_psid, response);
 }
 
