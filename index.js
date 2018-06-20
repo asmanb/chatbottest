@@ -179,7 +179,18 @@ function handlePostback(sender_psid, received_postback) {
     callSendAPI(sender_psid, response);
 
 }
-
+function sendTextMessage(recipientId, messageText) {
+    var messageData = {
+        recipient: {
+            id: recipientId
+        },
+        message: {
+            text: messageText,
+            metadata: "DEVELOPER_DEFINED_METADATA"
+        }
+    };
+    callSendAPI(messageData);
+}
 
 function sendGetStarted(recipientId) {
     console.log("sendGetStarted is working");
