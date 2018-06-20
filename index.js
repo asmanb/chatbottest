@@ -228,11 +228,11 @@ function addPersistentMenu() {
         url: 'https://graph.facebook.com/v2.6/me/messenger_profile',
         qs: { access_token: PAGE_ACCESS_TOKEN },
         method: 'POST',
-        json: {
+       /* json: {
             "get_started": {
                 "payload": "GET_STARTED_PAYLOAD"
             }
-        }
+        }*/
     }, function (error, response, body) {
         console.log("Add persistent menu " + response)
         if (error) {
