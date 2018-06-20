@@ -186,12 +186,6 @@ function sendGetStarted(sender_psid) {
                         ,
                         {
                             "type": "postback",
-                            "title": "Manual",
-                            "payload": "manual",
-                        }
-                        ,
-                        {
-                            "type": "postback",
                             "title": "Contact Us",
                             "payload": "contact",
                         }
