@@ -179,8 +179,8 @@ function handlePostback(sender_psid, received_postback) {
              sendTextMessage(senderID, "Postback called");
      }*/
 
-    console.log("Received postback for user %d and page %d with payload '%s' " +
-        "at %d", sender_psid, recipientID, payload, timeOfPostback);
+   // console.log("Received postback for user %d and page %d with payload '%s' " +
+   //     "at %d", sender_psid, recipientID, payload, timeOfPostback);
 
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
@@ -200,7 +200,7 @@ function sendTextMessage(recipientId, messageText) {
     callSendAPI(messageData);
 }*/
 
-function sendGetStarted(recipientId) {
+function sendGetStarted() {
     console.log("sendGetStarted is working");
 
     response = {
