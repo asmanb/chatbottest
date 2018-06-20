@@ -174,7 +174,7 @@ function sendGetStarted(sender_psid) {
     console.log("sendGetStarted is working");
     let response;
     response = { "text": "sendGetStarted is working" }
-    /*
+    
     response = {
         "attachment": {
             "type": "template",
@@ -204,7 +204,7 @@ function sendGetStarted(sender_psid) {
                 }]
             }
         }
-    }*/
+    }
 
 
     callSendAPI(sender_psid, response);
