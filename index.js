@@ -161,7 +161,7 @@ function handlePostback(sender_psid, received_postback) {
         response = { "text": "Thanks!" }
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
-    } else if (payload === 'Get Started'){
+    } else if (payload === 'Get Started') {
         console.log("get started from else if");
         sendGetStarted();
 
@@ -169,15 +169,15 @@ function handlePostback(sender_psid, received_postback) {
 
     }
 
-   /* switch (payload) {
-        case 'Get Started':
-            //sendGetStarted(senderID);
-            console.log("sendGetStarted is working switch");
-            break;
-    
-        default:
-            sendTextMessage(senderID, "Postback called");
-    }*/
+    /* switch (payload) {
+         case 'Get Started':
+             //sendGetStarted(senderID);
+             console.log("sendGetStarted is working switch");
+             break;
+     
+         default:
+             sendTextMessage(senderID, "Postback called");
+     }*/
 
     console.log("Received postback for user %d and page %d with payload '%s' " +
         "at %d", senderID, recipientID, payload, timeOfPostback);
@@ -203,34 +203,64 @@ function sendTextMessage(recipientId, messageText) {
 function sendGetStarted(recipientId) {
     console.log("sendGetStarted is working");
 
-    var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        message: {
-            attachment: {
-                type: "template",
-                payload: {
-                    template_type: "button",
-                    text: "Welcome to the Bot Hotel, I can help with any of the three requests below.",
-                    buttons: [{
-                        type: "postback",
-                        title: "Check in",
-                        payload: "check_in"
-                    }, {
-                        type: "postback",
-                        title: "Room Service",
-                        payload: "room_service"
-                    }, {
-                        type: "phone_number",
-                        title: "Call Reception",
-                        payload: "+16505551234"
-                    }]
+    response = {
+        "object": "page",
+        "entry": [
+          {
+            "id": "<PAGE_ID>",
+            "time": 1502905976963,
+            "messaging": [
+              {
+                "sender": {
+                  "id": "1254459154682919"
+                },
+                "recipient": {
+                  "id": "682498171943165"
+                },
+                "timestamp": 1502905976377,
+                "message": {
+                  "quick_reply": {
+                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                  },
+                  "mid": "mid.$cAAJsujCd2ORkHXKOOVd7C1F97Zto",
+                  "seq": 9767,
+                  "text": "Green"
+                }
+              }
+            ]
+          }
+        ]
+      }
+
+    /*
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: "Welcome to the Bot Hotel, I can help with any of the three requests below.",
+                        buttons: [{
+                            type: "postback",
+                            title: "Check in",
+                            payload: "check_in"
+                        }, {
+                            type: "postback",
+                            title: "Room Service",
+                            payload: "room_service"
+                        }, {
+                            type: "phone_number",
+                            title: "Call Reception",
+                            payload: "+16505551234"
+                        }]
+                    }
                 }
             }
-        }
-    };
-    
+        };*/
+
     callSendAPI(messageData);
 }
 
