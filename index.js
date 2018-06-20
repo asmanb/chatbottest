@@ -138,7 +138,7 @@ function handleMessage(sender_psid, received_message) {
             }
         }
     }
-    else if (received_message.text === 'menu'||'Menu'||'MENU') {
+    else if (received_message.text === "menu"||'Menu'||'MENU') {
 
         response = {
             "text": "here's menu"}
