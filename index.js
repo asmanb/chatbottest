@@ -138,12 +138,17 @@ function handleMessage(sender_psid, received_message) {
             }
         }
     }
-    else if (received_message.text === "menu"||'Menu'||'MENU') {
 
-        response = {
-            "text": "here's menu"}
-    }
     
+    switch (received_message.text) {
+        case 'menu':
+            //sendGetStarted(sender_psid);
+            console.log("s g");
+            break;
+
+        default:
+            response = { "text": "XXXXX" }
+    }
     
 
 
