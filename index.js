@@ -168,7 +168,7 @@ function sendGetStarted(sender_psid) {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "generic",
+                "template_type": "button",
                 "elements": [{
                     "title": "What can I help you",
                     "subtitle": "This is a bot",
