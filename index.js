@@ -279,34 +279,34 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 function addmenux() {
-    console.log("addmenuxWoorking");
+    console.log("addmenuxWorking");
     // Construct the message body
-    let request_body = {
-        "persistent_menu": [
+    let request_bodyX = {
+        "persistent_menu":[
             {
-                "locale": "default",
-                "composer_input_disabled": false,
-                "call_to_actions": [
+              "locale":"default",
+              "composer_input_disabled": true,
+              "call_to_actions":[
+                {
+                  "title":"My Account",
+                  "type":"nested",
+                  "call_to_actions":[
                     {
-                        "title": "My Account",
-                        "type": "nested",
-                        "call_to_actions": [
-                            {
-                                "title": "Pay Bill",
-                                "type": "postback",
-                                "payload": "PAYBILL_PAYLOAD"
-                            },
-                            {
-                                "type": "web_url",
-                                "title": "Latest News",
-                                "url": "https://www.messenger.com/",
-                                "webview_height_ratio": "full"
-                            }
-                        ]
+                      "title":"Pay Bill",
+                      "type":"postback",
+                      "payload":"PAYBILL_PAYLOAD"
+                    },
+                    {
+                      "type":"web_url",
+                      "title":"Latest News",
+                      "url":"https://www.messenger.com/",
+                      "webview_height_ratio":"full"
                     }
-                ]
+                  ]
+                }
+              ]
             }
-        ]
+          ]
     }
 
     // Send the HTTP request to the Messenger Platform
@@ -314,10 +314,10 @@ function addmenux() {
         "uri": "https://graph.facebook.com/v2.6/me/messages",
         "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
-        "json": request_body
+        "json": request_bodyX
     }, (err, res, body) => {
         if (!err) {
-            console.log('message sent!')
+            console.log('add menu message sent!')
         } else {
             console.error("Unable to send message:" + err);
         }
