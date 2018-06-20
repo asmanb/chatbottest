@@ -162,6 +162,9 @@ function handleMessage(sender_psid, received_message) {
                 }
             }
             break;
+        case 'add menu':
+            addPersistentMenu();
+            break;
 
         default:
             response = { "text": "XXXXX" }
@@ -215,6 +218,86 @@ function sendGetStarted(sender_psid) {
     // response = { "text": "gggggg" }
     callSendAPI(sender_psid, response);
 }
+
+
+
+function addPersistentMenu() {
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messenger_profile',
+        qs: { access_token: PAGE_ACCESS_TOKEN },
+        method: 'POST',
+        json: {
+            "get_started": {
+                "payload": "GET_STARTED_PAYLOAD"
+            }
+        }
+    }, function (error, response, body) {
+        console.log("Add persistent menu " + response)
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messenger_profile',
+        qs: { access_token: PAGE_ACCESS_TOKEN },
+        method: 'POST',
+        json: {
+            "persistent_menu": [
+                {
+                    "locale": "default",
+                    "composer_input_disabled": true,
+                    "call_to_actions": [
+                        {
+                            "title": "Home",
+                            "type": "postback",
+                            "payload": "HOME"
+                        },
+                        {
+                            "title": "Order",
+                            "type": "nested",
+                            "call_to_actions": [
+                                {
+                                    "title": "Oder Foods",
+                                    "type": "postback",
+                                    "payload": "ODF"
+                                },
+                                {
+                                    "title": "Oder Drinks",
+                                    "type": "postback",
+                                    "payload": "ODD"
+                                },
+
+                            ]
+                        },
+                        {
+                            "type": "web_url",
+                            "title": "Latest News",
+                            "url": "http://foxnews.com",
+                            "webview_height_ratio": "full"
+                        }
+                    ]
+                },
+                {
+                    "locale": "zh_CN",
+                    "composer_input_disabled": false
+                }
+            ]
+        }
+
+    }, function (error, response, body) {
+        console.log(response)
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+
+}
+
+
 
 
 
