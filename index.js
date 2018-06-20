@@ -162,8 +162,10 @@ function handleMessage(sender_psid, received_message) {
                 }
             }
             break;
-        case 'add menu':
-            addPersistentMenu();
+        case 'addmenu':
+            console.log("addmenu")
+            addPersistentMenu()
+
             break;
 
         default:
