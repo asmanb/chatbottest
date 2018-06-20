@@ -239,11 +239,14 @@ function handlePostback(sender_psid, received_postback) {
             console.log("s order");
             response = { "text": "Now you're ordering foods" }
             break;
-        case 'room_service':
-            sendTextMessage(senderID, "Room Service");
+        case 'order_drinks':
+            response = { "text": "Now you're ordering Drinks" }
+            break;
+        case 'contact':
+            response = { "text": "Now you can Contact Us, Just tell us what is borthering you we'll call you back ASAP" }
             break;
         default:
-            response = { "text": "None" }
+            response = { "text": "It's seems like there's an Issue plese type directly" }
     }
 
 
