@@ -162,7 +162,7 @@ function handleMessage(sender_psid, received_message) {
                 }
             }
             break;
-        
+
         default:
             response = { "text": "XXXXX" }
     }
@@ -250,16 +250,10 @@ function handlePostback(sender_psid, received_postback) {
 
 
     switch (payload) {
-        case 'get_started':
-            //sendGetStarted(sender_psid);
-            console.log("s g");
-            break;
-        case 'Get Started':
-            console.log("s gB");
-            break;
         case 'GET_STARTED_PAYLOAD':
             console.log("s pbpl");
             sendGetStarted(sender_psid);
+            addmenux();
             break;
         case 'order_food':
             console.log("s order");
@@ -281,7 +275,50 @@ function handlePostback(sender_psid, received_postback) {
 
 }
 
+function addmenux() {
+    // Construct the message body
+    let request_body = {
+        "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "title": "My Account",
+                        "type": "nested",
+                        "call_to_actions": [
+                            {
+                                "title": "Pay Bill",
+                                "type": "postback",
+                                "payload": "PAYBILL_PAYLOAD"
+                            },
+                            {
+                                "type": "web_url",
+                                "title": "Latest News",
+                                "url": "https://www.messenger.com/",
+                                "webview_height_ratio": "full"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": "https://graph.facebook.com/v2.6/me/messages",
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+            console.log('message sent!')
+        } else {
+            console.error("Unable to send message:" + err);
+        }
+    });
+}
 
 
 
