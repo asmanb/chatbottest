@@ -161,10 +161,10 @@ function handlePostback(sender_psid, received_postback) {
         response = { "text": "Thanks!" }
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
-    } else if (payload === 'Get Started'||'get_started'){
+    } else if (payload === 'Get Started'){
         console.log("get started from else if");
         sendGetStarted();
-        
+
 
 
     }
@@ -186,6 +186,7 @@ function handlePostback(sender_psid, received_postback) {
     callSendAPI(sender_psid, response);
 
 }
+/*
 function sendTextMessage(recipientId, messageText) {
     var messageData = {
         recipient: {
@@ -197,12 +198,12 @@ function sendTextMessage(recipientId, messageText) {
         }
     };
     callSendAPI(messageData);
-}
+}*/
 
 function sendGetStarted(recipientId) {
     console.log("sendGetStarted is working");
 
-   /* var messageData = {
+    var messageData = {
         recipient: {
             id: recipientId
         },
@@ -228,7 +229,7 @@ function sendGetStarted(recipientId) {
                 }
             }
         }
-    };*/
+    };
     
     callSendAPI(messageData);
 }
