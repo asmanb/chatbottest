@@ -178,6 +178,7 @@ function handleMessage(sender_psid, received_message) {
 function sendGetStarted(sender_psid) {
 
     console.log("sendGetStarted is working");
+    
     let response;
     //response = { "text": "Hello ! It's must be your first time with us.  This is a Bot, You can order your food from the options below.  You can also Contact directly to us from the option  We recommended you to read the manual to use the bot perfectly !" }
     //response = { "text": "Hello !" }
@@ -211,6 +212,8 @@ function sendGetStarted(sender_psid) {
             }
         }
     }
+
+    addmenux();
 
     // response = { "text": "gggggg" }
     callSendAPI(sender_psid, response);
@@ -253,7 +256,7 @@ function handlePostback(sender_psid, received_postback) {
         case 'GET_STARTED_PAYLOAD':
             console.log("s pbpl");
             sendGetStarted(sender_psid);
-            addmenux();
+            
             break;
         case 'order_food':
             console.log("s order");
