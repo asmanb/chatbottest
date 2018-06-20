@@ -163,10 +163,6 @@ function handleMessage(sender_psid, received_message) {
             }
             break;
 
-        case 'menux':
-            addmenux();
-
-            break;
 
         default:
             response = { "text": "XXXXX" }
@@ -283,50 +279,7 @@ function handlePostback(sender_psid, received_postback) {
 
 }
 
-function addmenux() {
-    console.log("addmenuxWorking");
 
-
-    // Send the HTTP request to the Messenger Platform
-    request({
-        "uri": "https://graph.facebook.com/v2.6/me/messages",
-        "qs": { "access_token": PAGE_ACCESS_TOKEN },
-        "method": "POST",
-        "json": {
-            "persistent_menu": [
-                {
-                    "locale": "default",
-                    "composer_input_disabled": true,
-                    "call_to_actions": [
-                        {
-                            "title": "My Account",
-                            "type": "nested",
-                            "call_to_actions": [
-                                {
-                                    "title": "Pay Bill",
-                                    "type": "postback",
-                                    "payload": "PAYBILL_PAYLOAD"
-                                },
-                                {
-                                    "type": "web_url",
-                                    "title": "Latest News",
-                                    "url": "https://www.messenger.com/",
-                                    "webview_height_ratio": "full"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    }, (err, res, body) => {
-        if (!err) {
-            console.log('add menu message sent!')
-        } else {
-            console.error("Unable to send message:" + err);
-        }
-    });
-}
 
 
 
