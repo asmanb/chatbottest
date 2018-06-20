@@ -162,12 +162,7 @@ function handleMessage(sender_psid, received_message) {
                 }
             }
             break;
-        case 'addmenu':
-            console.log("addmenu")
-            
-
-            break;
-
+        
         default:
             response = { "text": "XXXXX" }
     }
@@ -262,7 +257,7 @@ function handlePostback(sender_psid, received_postback) {
         case 'Get Started':
             console.log("s gB");
             break;
-        case '<postback_payload>':
+        case 'GET_STARTED_PAYLOAD':
             console.log("s pbpl");
             sendGetStarted(sender_psid);
             break;
