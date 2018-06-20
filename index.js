@@ -189,6 +189,12 @@ function sendGetStarted(sender_psid) {
                             "title": "Manaul",
                             "payload": "read_maual",
                         }
+                        ,
+                        {
+                            "type": "postback",
+                            "title": "Contact Us",
+                            "payload": "contact",
+                        }
                     ],
                 }]
             }
