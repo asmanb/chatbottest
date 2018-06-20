@@ -202,35 +202,37 @@ function sendTextMessage(recipientId, messageText) {
 
 function sendGetStarted() {
     console.log("sendGetStarted is working");
-
     response = {
-        "object": "page",
-        "entry": [
-          {
-            "id": "<PAGE_ID>",
-            "time": 1502905976963,
-            "messaging": [
-              {
-                "sender": {
-                  "id": "1254459154682919"
-                },
-                "recipient": {
-                  "id": "682498171943165"
-                },
-                "timestamp": 1502905976377,
-                "message": {
-                  "quick_reply": {
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                  },
-                  "mid": "mid.$cAAJsujCd2ORkHXKOOVd7C1F97Zto",
-                  "seq": 9767,
-                  "text": "Green"
-                }
-              }
-            ]
-          }
-        ]
-      }
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "What can I help you",
+                    "subtitle": "This is a bot",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Order Foods",
+                            "payload": "oder_food",
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Oder Drinks",
+                            "payload": "order_drinks",
+                        }
+                        ,
+                        {
+                            "type": "postback",
+                            "title": "Contact Us",
+                            "payload": "contact",
+                        }
+                    ],
+                }]
+            }
+        }
+    }
+
 
     /*
         var messageData = {
