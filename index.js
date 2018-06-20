@@ -172,6 +172,7 @@ function handlePostback(sender_psid, received_postback) {
 function sendGetStarted(sender_psid) {
 
     console.log("sendGetStarted is working");
+    let response;
     response = { "text": "sendGetStarted is working" }
     /*
     response = {
