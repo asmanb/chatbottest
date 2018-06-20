@@ -201,42 +201,48 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
 
-/*
-    // Set the response based on the postback payload
-    if (payload === 'yes') {
-        response = { "text": "Thanks!" }
-    } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." }
-    } else if (payload === 'Get Started' || 'get_started') {
-        response = { "text": "Recived getstarted!!" }
-        console.log("get started from else if");
-        sendGetStarted(sender_psid);
-    }
-    else if (payload === 'order_food' || 'Order Foods') {
-        response = { "text": "Now you order foods" }
-        console.log("HELLO");
-
-    }
-    else {
-        response = { "text": "NONE" }
-    }
-*/
-
-    
-        switch (payload) {
-            case 'get_started' ||'Get Started' :
-                sendGetStarted(sender_psid);
-                console.log("s g");
-                break;
-            case 'oder_food':
-            console.log("s order");
-                break;
-            case 'room_service':
-                sendTextMessage(senderID, "Room Service");
-                break;
-            default:
-                response = { "text": "None" }
+    /*
+        // Set the response based on the postback payload
+        if (payload === 'yes') {
+            response = { "text": "Thanks!" }
+        } else if (payload === 'no') {
+            response = { "text": "Oops, try sending another image." }
+        } else if (payload === 'Get Started' || 'get_started') {
+            response = { "text": "Recived getstarted!!" }
+            console.log("get started from else if");
+            sendGetStarted(sender_psid);
         }
+        else if (payload === 'order_food' || 'Order Foods') {
+            response = { "text": "Now you order foods" }
+            console.log("HELLO");
+    
+        }
+        else {
+            response = { "text": "NONE" }
+        }
+    */
+
+
+    switch (payload) {
+        case 'get_started':
+            //sendGetStarted(sender_psid);
+            console.log("s g");
+            break;
+        case 'Get Started':
+            console.log("s gB");
+            break;
+        case '<postback_payload>':
+            console.log("s pbpl");
+            break;
+        case 'oder_food':
+            console.log("s order");
+            break;
+        case 'room_service':
+            sendTextMessage(senderID, "Room Service");
+            break;
+        default:
+            response = { "text": "None" }
+    }
 
 
     // Send the message to acknowledge the postback
