@@ -165,7 +165,7 @@ function handlePostback(sender_psid, received_postback) {
         console.log("get started from else if");
         sendGetStarted(sender_psid);
     }
-    else if (payload === 'oder_food') {
+    else if (payload === 'oder_food' || 'Order Foods') {
         response = { "text": "Now you order foods" }
         console.log("jump in");
 
