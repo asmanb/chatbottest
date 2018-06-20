@@ -155,7 +155,7 @@ function handleMessage(sender_psid, received_message) {
                                 "type": "web_url",
                                 "url": "https://munwrite.wordpress.com/",
                                 "title": "URL Button",
-                                "webview_height_ratio": "full"
+                                "webview_height_ratio": "tall"
                             }
                         ]
                     }
