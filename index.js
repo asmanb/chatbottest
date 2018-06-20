@@ -162,13 +162,13 @@ function sendGetStarted(sender_psid) {
 
     console.log("sendGetStarted is working");
     let response;
-    response = { "text": "sendGetStarted is working" }
+    response = { "text": "Hello ! It's must be your first time with us. \n This is a Bot, You can order your food from the options below. \n You can also Contact directly to us from the option \n We recommended you to read the manual to use the bot perfectly !" }
 
     response = {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "generic",
+                "template_type": "button",
                 "elements": [{
                     "title": "What can I help you",
                     "subtitle": "This is a bot",
@@ -182,6 +182,12 @@ function sendGetStarted(sender_psid) {
                             "type": "postback",
                             "title": "Oder Drinks",
                             "payload": "order_drinks",
+                        }
+                        ,
+                        {
+                            "type": "postback",
+                            "title": "Manual",
+                            "payload": "manual",
                         }
                         ,
                         {
