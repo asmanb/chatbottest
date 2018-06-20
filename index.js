@@ -140,9 +140,6 @@ function handleMessage(sender_psid, received_message) {
 
     }
 
-    //}
-    // else {
-    // console.log('msg is NOT reci');
 
 
     // Sends the response message
@@ -161,12 +158,11 @@ function handlePostback(sender_psid, received_postback) {
         response = { "text": "Thanks!" }
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
-    } else if (payload === 'Get Started'||"get_started") {
+    } else if (payload === 'Get Started' || 'get_started') {
+        response = { "text": "get started in else if" }
         console.log("get started from else if");
         sendGetStarted(recipientId)
-        response = { "text": "get started in else if" }
-
-
+        
 
     }
 
@@ -187,21 +183,10 @@ function handlePostback(sender_psid, received_postback) {
     callSendAPI(sender_psid, response);
 
 }
-/*
-function sendTextMessage(recipientId, messageText) {
-    var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        message: {
-            text: messageText,
-            metadata: "DEVELOPER_DEFINED_METADATA"
-        }
-    };
-    callSendAPI(messageData);
-}*/
+
 
 function sendGetStarted(recipientId) {
+
     console.log("sendGetStarted is working");
     response = { "text": "get started in function" };
     let response;
@@ -236,35 +221,6 @@ function sendGetStarted(recipientId) {
         }
     }
 
-
-    /*
-        var messageData = {
-            recipient: {
-                id: recipientId
-            },
-            message: {
-                attachment: {
-                    type: "template",
-                    payload: {
-                        template_type: "button",
-                        text: "Welcome to the Bot Hotel, I can help with any of the three requests below.",
-                        buttons: [{
-                            type: "postback",
-                            title: "Check in",
-                            payload: "check_in"
-                        }, {
-                            type: "postback",
-                            title: "Room Service",
-                            payload: "room_service"
-                        }, {
-                            type: "phone_number",
-                            title: "Call Reception",
-                            payload: "+16505551234"
-                        }]
-                    }
-                }
-            }
-        };*/
 
     callSendAPI(messageData);
 }
