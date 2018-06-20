@@ -98,6 +98,12 @@ function handleMessage(sender_psid, received_message) {
 
     let response;
 
+
+    if (received_message.text == "Menu") {
+
+        response = { "text": "This is Menu" }
+    }
+
     // Check if the message contains text
     if (received_message.text) {
         //console.log('msg is reci');
