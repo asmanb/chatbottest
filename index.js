@@ -195,7 +195,7 @@ function sendGetStarted(sender_psid) {
         }
     }
     
-    response = { "text": "gggggg" }
+   // response = { "text": "gggggg" }
     callSendAPI(sender_psid, response);
 }
 
