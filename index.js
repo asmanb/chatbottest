@@ -182,7 +182,9 @@ function handlePostback(sender_psid, received_postback) {
 
 
 function sendGetStarted(recipientId) {
-    var messageData = {
+    console.log("sendGetStarted is working");
+
+   /* var messageData = {
         recipient: {
             id: recipientId
         },
@@ -208,7 +210,8 @@ function sendGetStarted(recipientId) {
                 }
             }
         }
-    };
+    };*/
+    
     callSendAPI(messageData);
 }
 
