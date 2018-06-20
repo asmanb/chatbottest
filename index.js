@@ -161,7 +161,7 @@ function handlePostback(sender_psid, received_postback) {
     } else if (payload === 'Get Started' || 'get_started') {
         response = { "text": "Recived getstarted!!" }
         console.log("get started from else if");
-        sendGetStarted(sender_psid, response);
+        sendGetStarted(sender_psid);
     }
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
