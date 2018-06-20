@@ -169,8 +169,8 @@ function handlePostback(sender_psid, received_postback) {
 
 
     switch (payload) {
-        case 'get_started':
-            sendGetStarted(senderID);
+        case 'get_started' ||'Get Started' :
+            sendGetStarted(sender_psid);
             break;
         case 'oder_food':
             response = { "text": "Now sending order foods" }
@@ -179,7 +179,7 @@ function handlePostback(sender_psid, received_postback) {
             sendTextMessage(senderID, "Room Service");
             break;
         default:
-        response = { "text": "None" }
+            response = { "text": "None" }
     }
 
 
