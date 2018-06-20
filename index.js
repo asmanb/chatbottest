@@ -163,7 +163,8 @@ function handlePostback(sender_psid, received_postback) {
         response = { "text": "Oops, try sending another image." }
     } else if (payload === 'Get Started') {
         console.log("get started from else if");
-        sendGetStarted();
+        sendGetStarted(recipientId);
+        response = { "text": "get started in else if" };
 
 
 
@@ -179,8 +180,8 @@ function handlePostback(sender_psid, received_postback) {
              sendTextMessage(senderID, "Postback called");
      }*/
 
-   // console.log("Received postback for user %d and page %d with payload '%s' " +
-   //     "at %d", sender_psid, recipientID, payload, timeOfPostback);
+    // console.log("Received postback for user %d and page %d with payload '%s' " +
+    //     "at %d", sender_psid, recipientID, payload, timeOfPostback);
 
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
@@ -202,6 +203,7 @@ function sendTextMessage(recipientId, messageText) {
 
 function sendGetStarted(recipientId) {
     console.log("sendGetStarted is working");
+    response = { "text": "get started in function" };
     let response;
     response = {
         "attachment": {
