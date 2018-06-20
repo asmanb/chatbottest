@@ -154,7 +154,7 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
 
-    
+
     // Set the response based on the postback payload
     if (payload === 'yes') {
         response = { "text": "Thanks!" }
@@ -165,25 +165,30 @@ function handlePostback(sender_psid, received_postback) {
         console.log("get started from else if");
         sendGetStarted(sender_psid);
     }
-    else{
+    else if (payload === oder_food) {
+        response = { "text": "Now you order foods" }
+
+
+    }
+    else {
         response = { "text": "NONE" }
     }
-    
 
-/*
-    switch (payload) {
-        case 'get_started' ||'Get Started' :
-            sendGetStarted(sender_psid);
-            break;
-        case 'oder_food':
-            response = { "text": "Now sending order foods" }
-            break;
-        case 'room_service':
-            sendTextMessage(senderID, "Room Service");
-            break;
-        default:
-            response = { "text": "None" }
-    }*/
+
+    /*
+        switch (payload) {
+            case 'get_started' ||'Get Started' :
+                sendGetStarted(sender_psid);
+                break;
+            case 'oder_food':
+                response = { "text": "Now sending order foods" }
+                break;
+            case 'room_service':
+                sendTextMessage(senderID, "Room Service");
+                break;
+            default:
+                response = { "text": "None" }
+        }*/
 
 
     // Send the message to acknowledge the postback
