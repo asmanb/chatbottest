@@ -200,7 +200,7 @@ function sendTextMessage(recipientId, messageText) {
     callSendAPI(messageData);
 }*/
 
-function sendGetStarted(sender_psid) {
+function sendGetStarted(recipientId) {
     console.log("sendGetStarted is working");
     let response;
     response = {
